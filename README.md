@@ -34,7 +34,7 @@ The goal of this port is to bring Localizer to PSP systems running 6.61 ARK-5 wh
 
 ## Installation
 
-Requirements: a PSP on **firmware 6.61 with ARK-5** (tested with ARK 5.1.0).
+Requirements: a PSP on **firmware 6.61 with [ARK-5](https://github.com/PSP-Arkfive/FasterARK/)** (tested with ARK 5.1.0). **[ARK-4](https://github.com/psp-archive/ark-4) support has not been tested.**
 
 1. **Get the files.** Download the release zip and extract it, or take `dist/localizer.prx` and a database (`dist/localizer_tr.dat`) from this repository. The Turkish release zip already contains the database as `localizer.dat`; if you take it from `dist/`, rename `localizer_tr.dat` to `localizer.dat`.
 2. **Copy to the Memory Stick.** Put `localizer.prx` and `localizer.dat` into `ms0:/seplugins/` (`ef0:/seplugins/` on a PSP Go). Create the `seplugins` folder if it does not exist. Both files must keep exactly these names.
@@ -75,6 +75,8 @@ tools\make_db.bat tr      :: strings\strings_tr.txt -> dist\localizer_tr.dat
 ## Status
 
 Tested on firmware **6.61 + ARK 5.1.0**: `dist/localizer.prx` (silent release build) loads, the XMB is translated, texts are no longer cut, and the About image cycle works.
+
+**ARK-4 support has not been tested** (only [ARK-5](https://github.com/PSP-Arkfive/FasterARK/) was). If you try it on [ARK-4](https://github.com/psp-archive/ark-4), please report the result.
 
 If anything misbehaves, try `dist/localizer_debug.prx` and look at `localizer.log` / `localizer_k.log` in `seplugins`.
 
