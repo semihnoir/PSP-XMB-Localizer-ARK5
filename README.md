@@ -116,6 +116,7 @@ The project is **open to pull requests for translations into other languages**. 
 
 * **Original developer:** Draan (Herby)
 * **Original project:** [Localizer PSP — GameBrew](https://www.gamebrew.org/wiki/Localizer_PSP)
+* **Original source repository:** [draanPSP/localizer](https://github.com/draanPSP/localizer)
 * **Compatibility port & adaptation:** [SemihNoir](https://github.com/semihnoir)
 * **AI-assisted development:** Anthropic Claude (contributor)
 * Draan's own credits (Bubbletune, Davee, krzychuuu & Erokesha, mint) are kept in [`docs/README_original_Draan.txt`](docs/README_original_Draan.txt), which must stay with any redistribution.

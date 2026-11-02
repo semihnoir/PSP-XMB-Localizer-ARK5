@@ -116,6 +116,7 @@ Proje, **diğer dillere çeviri için pull request'lere açıktır**. `strings/s
 
 * **Orijinal geliştirici:** Draan (Herby)
 * **Orijinal proje:** [Localizer PSP — GameBrew](https://www.gamebrew.org/wiki/Localizer_PSP)
+* **Orijinal kaynak kod deposu:** [draanPSP/localizer](https://github.com/draanPSP/localizer)
 * **Uyumluluk portu ve uyarlama:** [SemihNoir](https://github.com/semihnoir)
 * **Yapay zekâ destekli geliştirme:** Anthropic Claude (katkıda bulunan)
 * Draan'ın kendi teşekkürleri (Bubbletune, Davee, krzychuuu & Erokesha, mint) [`docs/README_original_Draan.txt`](docs/README_original_Draan.txt) dosyasındadır, bu dosya yeniden dağıtımlarda eklenti ile birlikte kalmalıdır.
