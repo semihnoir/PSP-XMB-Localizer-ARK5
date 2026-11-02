@@ -1,6 +1,6 @@
 # Localizer PSP — ARK-5 Port
 
-![Credits image shown in System Information](assets/semihnoir.png)
+**English** | [Türkçe](README.tr.md)
 
 ## About the Original Project
 
@@ -66,8 +66,30 @@ tools\make_db.bat tr      :: strings\strings_tr.txt -> dist\localizer_tr.dat
 
 ## Status
 
-* Tested on PSP, firmware 6.61, ARK 5.1.0: `dist/localizer.prx` (silent release build) loads, the XMB is translated, texts are no longer cut, and the About image cycle works.
-* If anything misbehaves, try `dist/localizer_debug.prx` and look at `localizer.log` / `localizer_k.log` in `seplugins`.
+Tested on firmware **6.61 + ARK 5.1.0**: `dist/localizer.prx` (silent release build) loads, the XMB is translated, texts are no longer cut, and the About image cycle works.
+
+If anything misbehaves, try `dist/localizer_debug.prx` and look at `localizer.log` / `localizer_k.log` in `seplugins`.
+
+### Tested consoles / TODO
+
+| Model | Status |
+|---|---|
+| PSP-3000 | tested, works |
+| PSP-1000 | not tested yet |
+| PSP-2000 | not tested yet |
+| PSP Street (E1000) | not tested yet |
+| PSP Go (N1000) | not tested yet (the plugin looks for `ef0:/seplugins/localizer.dat` first, but this path has never been run on real hardware) |
+
+- [ ] Test on PSP-1000
+- [ ] Test on PSP-2000
+- [ ] Test on PSP Street (E1000)
+- [ ] Test on PSP Go (N1000)
+
+If you tried it on one of these, please open an issue with the model, firmware, ARK version and (if it crashes) the logs from `dist/localizer_debug.prx`.
+
+## Translations & contributions
+
+The project is **open to pull requests for translations into other languages**. Add `strings/strings_<lang>.txt` (copy `strings/strings_eng.txt` and translate the values, keeping the format rules above), build it with `toolsmake_db.bat <lang>` and send a PR. Fixes and improvements to the plugin itself are welcome too.
 
 ## Credits & Links
 
