@@ -45,13 +45,29 @@ static void klog(const char *name, u32 value)
 #define klog(name, value) ((void)0)
 #endif
 
-//On 6.61 / ARK-5 the user module must not be loaded right away: loading it while the plugin loader is
-//still running crashes the console. The (now removed) file logging used to provide this delay by accident.
-#define LOAD_DELAY_US 50000
+//On 6.61 / ARK-5 the user module must not be loaded right away from the plugin loader's context, nor after a
+//long sleep: both crash the console right after the user module starts. A short bit of file IO before each step
+//is what the (now optional) debug logging provided and is known to work, so the silent build does the same.
+#ifndef LOC_DEBUG
+static void settle(void)
+{
+#ifdef LOC_K_SLEEP
+	sceKernelDelayThread(10000);
+#else
+	SceIoStat st;
+	sceIoGetstat("ms0:/seplugins/localizer.dat", &st);
+	sceIoGetstat("ef0:/seplugins/localizer.dat", &st);
+	SceUID fd = sceIoOpen("ms0:/seplugins/localizer.dat", PSP_O_RDONLY, 0);
+	if(fd >= 0) sceIoClose(fd);
+#endif
+}
+#else
+#define settle() ((void)0)
+#endif
 
 int MainThread(SceSize args, void *argp)
 {
-	sceKernelDelayThread(LOAD_DELAY_US);
+	settle();
 	klog("main_thread", 0);
 	//Register order is (size, buffer) for this NID, same as the original build. Newer SDK headers name the args the other way round.
 	SceUID thid = sceKernelLoadModuleBuffer((void*)size_localize, (SceSize)localize, 0, NULL);
@@ -60,9 +76,9 @@ int MainThread(SceSize args, void *argp)
 	{
 		int status = 0;
 		int ret = sceKernelStartModule(thid, 0, NULL, &status, NULL);
-		(void)ret;
 		klog("start_ret", ret);
 		klog("start_status", status);
+		(void)ret;
 	}
 	sceKernelExitDeleteThread(0);
 	return 0;
@@ -70,10 +86,11 @@ int MainThread(SceSize args, void *argp)
 
 int module_start(SceSize args, void *argp)
 {
+	settle();
 	klog("kernel_module_start", 0);
-	sceKernelDelayThread(LOAD_DELAY_US);
 	SceUID thid = sceKernelCreateThread("loc_kernel", MainThread, 0x18, 0x4000, 0, NULL);
 	klog("thread_created", thid);
+	settle();
 	if(thid >= 0) sceKernelStartThread(thid, 0, NULL);
 	return 0;
 }

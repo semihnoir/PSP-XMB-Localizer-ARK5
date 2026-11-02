@@ -25,7 +25,7 @@ The goal of this port is to bring Localizer to PSP systems running 6.61 ARK-5 wh
 
 * **6.61 support.** 6.61 reports devkit version `0x06060110`, which the original did not know, so it silently patched nothing. It now uses the 6.60 layout (the 6.60 and 6.61 `paf.prx` / `sysconf_plugin.prx` are identical at every patched address).
 * **Safety checks.** The hard-coded offsets are verified (call targets, export slots) before anything is patched; on a mismatch the plugin leaves the firmware untouched instead of crashing.
-* **ARK-5 crash fix.** On ARK-5 the console powered off right after the plugin started. Loading the embedded user module immediately from the plugin loader's context was the culprit, so the kernel module now waits briefly before loading it (see `LOAD_DELAY_US` in `src/kernel/main.c`).
+* **ARK-5 crash fix.** On ARK-5 the console powered off right after the plugin started. Loading the embedded user module immediately from the plugin loader's context crashes it, and so does a long `sceKernelDelayThread` before it. A little file IO before each step (see `settle()` in `src/kernel/main.c`) is what works, so the kernel module does that. `-DLOC_K_SLEEP` selects a 10 ms sleep instead, which was also tested.
 * **No crash without `localizer.dat`.** A missing database used to dereference a NULL pointer.
 * **Optional debug logs** (`./build.sh debug`) – `ms0:/seplugins/localizer.log` and `localizer_k.log`. The release build writes nothing.
 * **Builds with a current toolchain** ([pspdev](https://pspdev.github.io), GCC 15) instead of the 2011 PSPSDK.
@@ -66,8 +66,8 @@ tools\make_db.bat tr      :: strings\strings_tr.txt -> dist\localizer_tr.dat
 
 ## Status
 
-* Tested on PSP, firmware 6.61, ARK 5.1.0: plugin loads and the XMB is translated.
-* The silent release build and the About image cycle are new and have had less testing than the debug build; if anything misbehaves, try `dist/localizer_debug.prx` and look at the log files.
+* Tested on PSP, firmware 6.61, ARK 5.1.0: `dist/localizer.prx` (silent release build) loads, the XMB is translated, texts are no longer cut, and the About image cycle works.
+* If anything misbehaves, try `dist/localizer_debug.prx` and look at `localizer.log` / `localizer_k.log` in `seplugins`.
 
 ## Credits & Links
 

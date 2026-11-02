@@ -12,8 +12,8 @@ export PSPDEV="${PSPDEV:-$HOME/pspdev}"
 export PATH="$PATH:$PSPDEV/bin"
 
 MODE="${1:-release}"
-FLAGS=""; OUT="localizer.prx"
-if [ "$MODE" = "debug" ]; then FLAGS="-DLOC_DEBUG"; OUT="localizer_debug.prx"; fi
+FLAGS="${LOC_FLAGS:-}"; OUT="${LOC_OUT:-localizer.prx}"
+if [ "$MODE" = "debug" ]; then FLAGS="$FLAGS -DLOC_DEBUG"; OUT="${LOC_OUT:-localizer_debug.prx}"; fi
 
 WORK="$ROOT/build"
 rm -rf "$WORK"; mkdir -p "$WORK" "$ROOT/dist"
