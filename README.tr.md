@@ -34,14 +34,22 @@ Amaç, Localizer'ı 6.61 ARK-5 çalıştıran PSP'lere getirirken projenin özg�
 
 ## Kurulum
 
-1. `dist/localizer.prx` ve bir dil veritabanını (örn. `dist/localizer_tr.dat`, adını `localizer.dat` yapın) `ms0:/seplugins/` klasörüne kopyalayın (PSP Go'da `ef0:/seplugins/`).
-2. `ms0:/seplugins/vsh.txt` dosyasına (veya ARK `PLUGINS.TXT`) şu satırı ekleyin:
+Gereksinim: **ARK-5 yüklü 6.61 firmware**'li bir PSP (ARK 5.1.0 ile test edildi).
+
+1. **Dosyaları edinin.** Release zip'ini indirip açın veya bu depodan `dist/localizer.prx` ile bir veritabanını (`dist/localizer_tr.dat`) alın. Türkçe release zip'inde veritabanı zaten `localizer.dat` adıyla gelir, `dist/` içinden alıyorsanız `localizer_tr.dat` dosyasının adını `localizer.dat` yapın.
+2. **Memory Stick'e kopyalayın.** `localizer.prx` ve `localizer.dat` dosyalarını `ms0:/seplugins/` klasörüne koyun (PSP Go'da `ef0:/seplugins/`). `seplugins` klasörü yoksa oluşturun. İki dosyanın adı tam olarak böyle kalmalıdır.
+3. **Eklentiyi etkinleştirin.** ARK eklenti listesini açın: `ms0:/seplugins/PLUGINS.TXT` (yoksa oluşturun, eski CFW'lerde `vsh.txt`) ve şu satırı ekleyin:
    ```
    vsh, ms0:/seplugins/localizer.prx, on
    ```
-3. Konsolu yeniden başlatın.
+   PSP Go'da yolda `ef0:/...` kullanın.
+4. **Yeniden başlatın** (ARK-5 ile). XMB menüleri artık Türkçe görünür, Sistem Bilgisi sayfası da yazar görsellerini sırayla gösterir.
 
 `localizer.dat` önce `ef0:/seplugins/`, sonra `ms0:/seplugins/` içinde aranır.
+
+Kaldırmak için satırı `off` yapın ya da silin, iki dosyayı da silin.
+
+**Sorun giderme:** hiçbir şey çevrilmiyorsa dosya adlarını, konumunu ve eklenti satırını kontrol edin. Konsol açılışta kapanıyorsa `localizer.prx` yerine `dist/localizer_debug.prx` kullanın, yeniden başlatın ve oluşan `localizer.log` / `localizer_k.log` dosyalarını gönderin (aşağıdaki Durum bölümüne bakın).
 
 ## Derleme
 

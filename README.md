@@ -34,14 +34,22 @@ The goal of this port is to bring Localizer to PSP systems running 6.61 ARK-5 wh
 
 ## Installation
 
-1. Copy `dist/localizer.prx` and a language database (e.g. `dist/localizer_tr.dat`, renamed to `localizer.dat`) to `ms0:/seplugins/` (`ef0:/seplugins/` on a PSP Go).
-2. Add this line to `ms0:/seplugins/vsh.txt` (or the ARK `PLUGINS.TXT`):
+Requirements: a PSP on **firmware 6.61 with ARK-5** (tested with ARK 5.1.0).
+
+1. **Get the files.** Download the release zip and extract it, or take `dist/localizer.prx` and a database (`dist/localizer_tr.dat`) from this repository. The Turkish release zip already contains the database as `localizer.dat`; if you take it from `dist/`, rename `localizer_tr.dat` to `localizer.dat`.
+2. **Copy to the Memory Stick.** Put `localizer.prx` and `localizer.dat` into `ms0:/seplugins/` (`ef0:/seplugins/` on a PSP Go). Create the `seplugins` folder if it does not exist. Both files must keep exactly these names.
+3. **Enable the plugin.** Open the ARK plugin list `ms0:/seplugins/PLUGINS.TXT` (create it if missing; older CFW use `vsh.txt`) and add this line:
    ```
    vsh, ms0:/seplugins/localizer.prx, on
    ```
-3. Reboot.
+   On a PSP Go use `ef0:/...` in the path.
+4. **Reboot** into ARK-5. The XMB menus are now translated, and the System Information page cycles through the author images.
 
 `localizer.dat` is looked up in `ef0:/seplugins/` first, then `ms0:/seplugins/`.
+
+To uninstall, set the line to `off` or delete it, and delete the two files.
+
+**Troubleshooting:** nothing translated → check the file names/location and the plugin line; console shuts down at boot → replace `localizer.prx` with `dist/localizer_debug.prx`, reboot, and send the generated `localizer.log` / `localizer_k.log` (see Status below).
 
 ## Building
 
