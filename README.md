@@ -32,6 +32,17 @@ The goal of this port is to bring Localizer to PSP systems running 6.61 ARK-5 wh
 * **About image cycle.** The System Information page loads a single image (`flash0:/vsh/resource/name_plate.png`). Each time it is opened the plugin serves the next one: `semihnoir.png` → `genesis.png` → the original PSP image.
 * **Turkish database** (`strings/strings_tr.txt`, `dist/localizer_tr.dat`).
 
+## Screenshots
+
+Real hardware: PSP-3000, firmware 6.61 with ARK-5.
+
+| | |
+|---|---|
+| ![Settings menu](screenshots/1-xmb-settings.png) | ![System Settings](screenshots/2-system-settings.png) |
+| Settings menu | System Settings with the language entry |
+| ![Language list](screenshots/3-language-list.png) | ![System Information](screenshots/4-system-information.png) |
+| Language list (the "English" slot now reads Türkçe) | System Information on 6.61 ARK-5 |
+
 ## Installation
 
 Requirements: a PSP on **firmware 6.61 with [ARK-5](https://github.com/PSP-Arkfive/FasterARK/)** (tested with ARK 5.1.0). **[ARK-4](https://github.com/psp-archive/ark-4) support has not been tested.**

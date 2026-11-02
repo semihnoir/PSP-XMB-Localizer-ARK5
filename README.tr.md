@@ -32,6 +32,17 @@ Amaç, Localizer'ı 6.61 ARK-5 çalıştıran PSP'lere getirirken projenin özg�
 * **Hakkında görseli döngüsü.** Sistem Bilgisi sayfası tek bir görsel yükler (`flash0:/vsh/resource/name_plate.png`). Sayfa her açıldığında eklenti sıradakini verir: `semihnoir.png` → `genesis.png` → PSP'nin özgün görseli.
 * **Türkçe veritabanı** (`strings/strings_tr.txt`, `dist/localizer_tr.dat`).
 
+## Ekran görüntüleri
+
+Gerçek donanım: PSP-3000, 6.61 firmware, ARK-5.
+
+| | |
+|---|---|
+| ![Ayarlar menüsü](screenshots/1-xmb-settings.png) | ![Sistem Ayarları](screenshots/2-system-settings.png) |
+| Ayarlar menüsü | Sistem Ayarları ve dil satırı |
+| ![Dil listesi](screenshots/3-language-list.png) | ![Sistem Bilgisi](screenshots/4-system-information.png) |
+| Dil listesi ("English" yuvası artık Türkçe) | 6.61 ARK-5 üzerinde Sistem Bilgisi |
+
 ## Kurulum
 
 Gereksinim: **[ARK-5](https://github.com/PSP-Arkfive/FasterARK/) yüklü 6.61 firmware**'li bir PSP (ARK 5.1.0 ile test edildi). **[ARK-4](https://github.com/psp-archive/ark-4) desteği test edilmedi.**
