@@ -2,8 +2,6 @@
 
 [English](README.md) | **Türkçe**
 
-![System Information ekranında görünen kredi görseli](assets/semihnoir.png)
-
 ## Orijinal Proje Hakkında
 
 **Localizer™: Translate your XMB!**, **Draan** tarafından geliştirilen bir PSP homebrew eklentisidir.
