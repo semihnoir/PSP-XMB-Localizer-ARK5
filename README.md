@@ -89,7 +89,7 @@ If you tried it on one of these, please open an issue with the model, firmware, 
 
 ## Translations & contributions
 
-The project is **open to pull requests for translations into other languages**. Add `strings/strings_<lang>.txt` (copy `strings/strings_eng.txt` and translate the values, keeping the format rules above), build it with `toolsmake_db.bat <lang>` and send a PR. Fixes and improvements to the plugin itself are welcome too.
+The project is **open to pull requests for translations into other languages**. Add `strings/strings_<lang>.txt` (copy `strings/strings_eng.txt` and translate the values, keeping the format rules above), build it with `tools\make_db.bat <lang>` and send a PR. Fixes and improvements to the plugin itself are welcome too.
 
 ## Credits & Links
 
