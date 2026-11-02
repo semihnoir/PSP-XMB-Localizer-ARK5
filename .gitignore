@@ -1,0 +1,5 @@
+build/
+tools/strings.txt
+tools/localizer.dat
+*.elf
+*.o

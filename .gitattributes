@@ -1,0 +1,6 @@
+* text=auto
+strings/*.txt -text
+*.png binary
+*.prx binary
+*.dat binary
+*.exe binary
